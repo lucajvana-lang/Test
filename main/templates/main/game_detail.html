@@ -1,0 +1,39 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ game.title }} — Обзор и советы{% endblock %}
+
+{% block content %}
+<p style="margin-bottom: 1.5rem;"><a href="{% url 'index' %}" style="color: #00b37e; text-decoration: none;">&larr; Вернуться на главную</a></p>
+
+<div class="hero">
+    <h1>{{ game.title }}</h1>
+    <div class="meta" style="color: #00b37e; font-weight: 600; margin-bottom: 1rem;">
+        Жанр: {{ game.genre }} | Наиграно: {{ game.hours_played }} часов
+    </div>
+    <p>{{ game.description }}</p>
+</div>
+
+<h2 class="section-title">Полезные советы и тактики</h2>
+<div style="margin-bottom: 3rem;">
+    {% for tip in game.tips.all %}
+    <div class="tip-box">
+        <h4>💡 {{ tip.title }}</h4>
+        <p>{{ tip.content }}</p>
+    </div>
+    {% empty %}
+    <p style="color: #a8a8b3;">Советы для этой игры можно добавить через панель администратора.</p>
+    {% endfor %}
+</div>
+
+<h2 class="section-title">Скриншоты и изображения</h2>
+<div class="gallery-grid">
+    {% for img in game.images.all %}
+    <div class="gallery-item">
+        <img src="{{ img.image.url }}" alt="{{ img.caption }}">
+        <p>{{ img.caption }}</p>
+    </div>
+    {% empty %}
+    <p style="color: #a8a8b3;">Картинки для этой игры пока не загружены.</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Главная — Персональный сайт Ивана Луцая{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Здравствуйте! Я {{ author_name }}</h1>
+    <p>Добро пожаловать на мой персональный дипломный сайт. Здесь я рассказываю о своих увлечениях, любимых компьютерных играх, делюсь авторскими советами по геймплею и выкладываю скриншоты.</p>
+</section>
+
+<h2 class="section-title">Мои любимые игры</h2>
+<div class="grid">
+    {% for game in games %}
+    <div class="card">
+        <div>
+            <h3>{{ game.title }}</h3>
+            <div class="meta">Жанр: {{ game.genre }} | Наиграно: {{ game.hours_played }} ч.</div>
+            <p>{{ game.description|truncatewords:25 }}</p>
+        </div>
+        <a href="{% url 'game_detail' game.slug %}" class="btn">Подробнее и советы &rarr;</a>
+    </div>
+    {% empty %}
+    <div class="card">
+        <h3>War Thunder</h3>
+        <div class="meta">Жанр: Реалистичный симулятор военной техники | Наиграно: 450 ч.</div>
+        <p>Масштабный онлайн-симулятор танков, авиации и флота. Описание и советы доступны в админке.</p>
+    </div>
+    <div class="card">
+        <h3>Counter-Strike 2</h3>
+        <div class="meta">Жанр: Тактический шутер | Наиграно: 1200 ч.</div>
+        <p>Легендарный командный тактический шутер от первого лица. Стратегии и тактики выстрелов.</p>
+    </div>
+    {% endfor %}
+</div>
+
+<h2 class="section-title">Мои увлечения</h2>
+<div class="grid">
+    {% for hobby in hobbies %}
+    <div class="card">
+        <h3>{{ hobby.icon }} {{ hobby.title }}</h3>
+        <p>{{ hobby.description }}</p>
+    </div>
+    {% empty %}
+    <div class="card">
+        <h3>🏍️ Мотоциклы и эндуро</h3>
+        <p>Изучение устройства мототехники, обслуживание двигателей, поездки по пересеченной местности и внедорожным маршрутам.</p>
+    </div>
+    <div class="card">
+        <h3>💻 Веб-разработка и Python</h3>
+        <p>Создание веб-сайтов на Django, верстка на HTML/CSS, написание скриптов на Python и работа в редакторе VS Code.</p>
+    </div>
+    <div class="card">
+        <h3>🎬 Видеомонтаж и медиа</h3>
+        <p>Монтаж динамичных игровых нарезок, работа со звуком, цветокоррекция и публикация видеоконтента.</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

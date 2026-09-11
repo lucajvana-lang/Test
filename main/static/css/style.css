@@ -1,0 +1,226 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: #121214;
+    color: #e1e1e6;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #1a1a1e;
+    border-bottom: 1px solid #29292e;
+    padding: 1.2rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+header .logo span {
+    color: #00b37e;
+}
+
+nav a {
+    color: #a8a8b3;
+    text-decoration: none;
+    margin-left: 1.8rem;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+}
+
+nav a:hover, nav a.active {
+    color: #00b37e;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 2.5rem auto;
+    padding: 0 1.5rem;
+}
+
+.hero {
+    background-color: #1a1a1e;
+    border: 1px solid #29292e;
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+.hero h1 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 0.8rem;
+}
+
+.hero p {
+    color: #c4c4cc;
+    font-size: 1.05rem;
+}
+
+.section-title {
+    font-size: 1.4rem;
+    color: #ffffff;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #00b37e;
+    display: inline-block;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.card {
+    background-color: #1a1a1e;
+    border: 1px solid #29292e;
+    border-radius: 6px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card h3 {
+    color: #ffffff;
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+}
+
+.card p {
+    color: #a8a8b3;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+
+.card .meta {
+    font-size: 0.85rem;
+    color: #00b37e;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+}
+
+.card a.btn {
+    display: inline-block;
+    align-self: flex-start;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #202024;
+    border: 1px solid #00b37e;
+    color: #00b37e;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.card a.btn:hover {
+    background-color: #00b37e;
+    color: #ffffff;
+}
+
+.filter-bar {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+}
+
+.filter-btn {
+    padding: 0.5rem 1.2rem;
+    background-color: #202024;
+    border: 1px solid #29292e;
+    color: #e1e1e6;
+    border-radius: 4px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background-color: #00b37e;
+    color: #ffffff;
+    border-color: #00b37e;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.2rem;
+}
+
+.gallery-item {
+    background-color: #1a1a1e;
+    border: 1px solid #29292e;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-item-placeholder {
+    width: 100%;
+    height: 180px;
+    background-color: #202024;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #7c7c8a;
+    font-size: 0.9rem;
+}
+
+.gallery-item p {
+    padding: 0.8rem;
+    font-size: 0.88rem;
+    color: #c4c4cc;
+}
+
+.tip-box {
+    background-color: #1a1a1e;
+    border-left: 4px solid #00b37e;
+    border-top: 1px solid #29292e;
+    border-right: 1px solid #29292e;
+    border-bottom: 1px solid #29292e;
+    padding: 1.2rem;
+    margin-bottom: 1.2rem;
+    border-radius: 0 6px 6px 0;
+}
+
+.tip-box h4 {
+    color: #ffffff;
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+}
+
+.tip-box p {
+    color: #a8a8b3;
+    font-size: 0.95rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    border-top: 1px solid #29292e;
+    color: #7c7c8a;
+    font-size: 0.9rem;
+    margin-top: 4rem;
+}

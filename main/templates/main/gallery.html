@@ -1,0 +1,30 @@
+{% extends 'main/base.html' %}
+
+{% block title %}Галерея скриншотов по играм{% endblock %}
+
+{% block content %}
+<h1 class="section-title">Галерея скриншотов по названиям игр</h1>
+<p style="margin-bottom: 1.5rem; color: #a8a8b3;">Выберите игру, чтобы посмотреть скриншоты по этой игре:</p>
+
+<div class="filter-bar">
+    <a href="{% url 'gallery' %}" class="filter-btn {% if not selected_game_id %}active{% endif %}">Все игры</a>
+    {% for game in games %}
+    <a href="?game={{ game.id }}" class="filter-btn {% if selected_game_id == game.id|stringformat:'s' %}active{% endif %}">
+        {{ game.title }}
+    </a>
+    {% endfor %}
+</div>
+
+<div class="gallery-grid">
+    {% for img in images %}
+    <div class="gallery-item">
+        <img src="{{ img.image.url }}" alt="{{ img.caption }}">
+        <p><strong>{{ img.game.title }}</strong>: {{ img.caption|default:"Скриншот из игры" }}</p>
+    </div>
+    {% empty %}
+    <div style="grid-column: 1 / -1; padding: 2rem; background: #1a1a1e; border: 1px solid #29292e; border-radius: 6px; text-align: center;">
+        <p style="color: #a8a8b3;">Загрузите картинки в галерею через <a href="/admin/" style="color: #00b37e;">Панель управления (/admin)</a>, привязав их к играм War Thunder или Counter-Strike!</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
